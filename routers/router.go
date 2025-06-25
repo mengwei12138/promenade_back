@@ -29,4 +29,6 @@ func RegisterRoutes(r *gin.Engine) {
 
 	r.POST("/api/projects/sort", handlers.SortProjects)
 	r.POST("/api/ai/chat", handlers.AIChatHandler)
+	// 操作密钥校验接口
+	r.POST("/api/check-manager-key", handlers.CheckManagerKeyHandler)
 }

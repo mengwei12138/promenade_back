@@ -113,3 +113,20 @@ func AIChatHandler(c *gin.Context) {
 	}
 	c.JSON(http.StatusOK, gin.H{"reply": reply})
 }
+
+// 校验前端操作密钥接口
+func CheckManagerKeyHandler(c *gin.Context) {
+	var req struct {
+		Key string `json:"key"`
+	}
+	if err := c.ShouldBindJSON(&req); err != nil {
+		c.JSON(400, gin.H{"success": false, "error": "参数错误"})
+		return
+	}
+	managerKey := os.Getenv("FRONTEND_MANAGER_KEY")
+	if req.Key == managerKey {
+		c.JSON(200, gin.H{"success": true})
+	} else {
+		c.JSON(200, gin.H{"success": false, "error": "密钥错误"})
+	}
+}
