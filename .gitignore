@@ -1,0 +1,26 @@
+.env 
+
+# Log files
+*.log
+npm-debug.log*
+
+# Dependency directories
+node_modules/
+vendor/
+
+# Compiled output
+dist/
+build/
+*.class
+*.o
+*.exe
+
+# Environment variables
+.env
+.flaskenv
+
+# IDE and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
